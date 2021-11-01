@@ -48,7 +48,7 @@ def main():
     one_jet_te, _, _ = standardize(one_jet_te,one_jet_tr_mean,one_jet_tr_std)
     multi_jet_te, _, _ = standardize(multi_jet_te,multi_jet_tr_mean,multi_jet_tr_std)
     ### Model Training
-    w_no_jet, w_one_jet, w_multi_jet = model_training(ys_tr,[no_jet_tr,one_jet_tr,multi_jet_tr],model="GD")
+    w_no_jet, w_one_jet, w_multi_jet = model_training(ys_tr,[no_jet_tr,one_jet_tr,multi_jet_tr],model="least_squares")
     ### Prediction
     no_jet_pred = predict_label(no_jet_te,w_no_jet)
     one_jet_pred = predict_label(one_jet_te,w_one_jet)
