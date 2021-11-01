@@ -61,7 +61,6 @@ def main():
     create_csv_submission(ids_test, predictions, OUTPUT_PATH)
     print("Done")
 
-
 def predict_label(x,weights,model="least_squares"):
     """Predict the labels based on the rule dicted by the model selection."""
     pred = x@weights
@@ -69,7 +68,7 @@ def predict_label(x,weights,model="least_squares"):
         pred[pred < 0] = -1
         pred[pred >= 0] = 1
     else:
-        pred[pred < 0.5] = 0
+        pred[pred < 0.5] = -1
         pred[pred >= 0.5] = 1
     return pred
 
